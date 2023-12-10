@@ -1,4 +1,5 @@
-package gr.vbatsalis.publicipnotification;
+package gr.vbatsalis.publicipmailnotification;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -14,9 +15,10 @@ import java.net.URL;
 @Component
 public class IpFinderMethod {
     String urlString = "https://checkip.amazonaws.com/";
-    String ipVar="0.0.0.0";
+    String ipVar = "0.0.0.0";
     @Autowired
     MailService mailService;
+
     @Scheduled(fixedRate = 60000)
     private void getIp() throws Exception {
         try {

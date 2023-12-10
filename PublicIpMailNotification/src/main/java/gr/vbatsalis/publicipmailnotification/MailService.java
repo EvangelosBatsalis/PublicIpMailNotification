@@ -1,4 +1,4 @@
-package gr.vbatsalis.publicipnotification;
+package gr.vbatsalis.publicipmailnotification;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
@@ -10,15 +10,16 @@ public class MailService {
     private JavaMailSender javaMailSender;
 
     @Autowired
-    public MailService(JavaMailSender javaMailSender){
-        this.javaMailSender=javaMailSender;
+    public MailService(JavaMailSender javaMailSender) {
+        this.javaMailSender = javaMailSender;
     }
-    public void sentTextEmail(String ip){
+
+    public void sentTextEmail(String ip) {
         SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
         simpleMailMessage.setFrom("v.batsalis@gmail.com");
         simpleMailMessage.setTo("zyled@hotmail.com");
         simpleMailMessage.setSubject("ip Changed");
-        simpleMailMessage.setText("ip is: "+ip);
+        simpleMailMessage.setText("ip is: " + ip);
         javaMailSender.send(simpleMailMessage);
     }
 
